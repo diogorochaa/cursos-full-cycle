@@ -1,0 +1,36 @@
+{
+  "name": "hexagonal-clean-arch-problem-project",
+  "version": "1.0.0",
+  "description": "Projeto problemático para curso de Hexagonal Architecture & Clean Architecture",
+  "private": true,
+  "workspaces": [
+    "services/*"
+  ],
+  "scripts": {
+    "start": "node dist/app.js",
+    "dev": "ts-node app.ts"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "axios": "^1.6.2",
+    "reflect-metadata": "^0.1.13",
+    "dotenv": "^16.3.1",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.5",
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2",
+    "nodemon": "^3.0.2",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

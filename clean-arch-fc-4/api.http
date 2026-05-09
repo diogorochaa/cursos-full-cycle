@@ -1,0 +1,108 @@
+@baseUrl = http://localhost:3000
+@adminUser = admin
+@adminPass = admin123
+
+### Auth - Login (admin)
+# @name login
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "{{adminUser}}",
+  "password": "{{adminPass}}"
+}
+
+###
+
+@token = {{login.response.body.token}}
+
+### Auth - Me
+GET {{baseUrl}}/api/auth/me
+Authorization: Bearer {{token}}
+
+### Users - Create (ADMIN)
+POST {{baseUrl}}/api/users
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "username": "demo_user_{{$timestamp}}",
+  "email": "demo_user_{{$timestamp}}@example.com",
+  "password": "password123",
+  "role": "USER"
+}
+
+### Products - Create (ADMIN)
+POST {{baseUrl}}/api/products
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Demo Product {{$timestamp}}",
+  "sku": "SKU-{{$timestamp}}",
+  "price": 99.9,
+  "cost": 40,
+  "stock": 50,
+  "category_id": null
+}
+
+### Products - List (public)
+GET {{baseUrl}}/api/products
+
+### Customers - Create (ADMIN/SALES)
+POST {{baseUrl}}/api/customers
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Customer {{$timestamp}}",
+  "email": "customer{{$timestamp}}@example.com",
+  "cpf": "12345678901",
+  "phone": "11987654321",
+  "city": "Sao Paulo",
+  "state": "SP",
+  "zipCode": "01234000"
+}
+
+### Customers - List (ADMIN/SALES)
+GET {{baseUrl}}/api/customers
+Authorization: Bearer {{token}}
+
+### Orders - Create (requires auth & permission)
+POST {{baseUrl}}/api/orders
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "customerId": 1,
+  "items": [
+    { "productId": 1, "quantity": 1 }
+  ],
+  "paymentMethod": "CREDIT_CARD",
+  "cardToken": "pm_card_visa"
+}
+
+### Orders - List (role-sensitive)
+GET {{baseUrl}}/api/orders
+Authorization: Bearer {{token}}
+
+### Orders - Complete Flow (ADMIN)
+POST {{baseUrl}}/api/orders/complete-flow
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "customerId": 1,
+  "items": [
+    { "productId": 1, "quantity": 1 }
+  ],
+  "paymentMethod": "CREDIT_CARD",
+  "cardToken": "pm_card_visa"
+}
+
+### Reports - Daily (ADMIN/SALES)
+GET {{baseUrl}}/api/reports/daily
+Authorization: Bearer {{token}}
+
+### Health
+GET {{baseUrl}}/health
