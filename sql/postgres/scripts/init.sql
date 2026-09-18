@@ -1,0 +1,3 @@
+-- create database
+DROP DATABASE IF EXISTS live024;
+CREATE DATABASE live024;
