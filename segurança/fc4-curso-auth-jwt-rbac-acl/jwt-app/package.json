@@ -1,0 +1,43 @@
+{
+  "name": "my-express-app",
+  "version": "1.0.0",
+  "description": "A simple Express.js application using TypeScript",
+  "main": "dist/app.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/app.js",
+    "dev": "nodemon src/auth-server/app.ts",
+    "dev-session-cookie": "nodemon src/clients-backend/app-session-cookie.ts",
+    "dev-session-stateless": "nodemon src/clients-backend/app-session-stateless.ts",
+    "test": "node --require ts-node/register --test 'src/**/*.test.ts'"
+  },
+  "dependencies": {
+    "@casl/ability": "^6.7.3",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "csrf": "^3.1.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "iron-session": "^8.0.4",
+    "jsonwebtoken": "^9.0.2",
+    "node-cache": "^5.1.2",
+    "sqlite3": "^5.1.7",
+    "typeorm": "^0.3.20"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cookie-parser": "^1.4.8",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/express-session": "^1.18.1",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/node": "^22.13.8",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  },
+  "author": "",
+  "license": "ISC"
+}

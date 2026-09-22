@@ -1,0 +1,33 @@
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "admin@user.com",
+    "password": "admin"
+}
+
+###
+POST http://localhost:3000/refresh-token
+Content-Type: application/json
+
+{
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWRtaW4gVXNlciIsImVtYWlsIjoiYWRtaW5AdXNlci5jb20iLCJpYXQiOjE3NDEyMzI4MjAsImV4cCI6MTc0MTI2ODgyMH0.xodA71seHtJ11PscR2IDra_5Bv3SJ-P-IUmPv36_0_8"
+}
+
+###
+POST http://localhost:3000/refresh-token
+
+###
+GET http://localhost:3000/protected
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWRtaW4gVXNlciIsImVtYWlsIjoiYWRtaW5AdXNlci5jb20iLCJpYXQiOjE3NDE3MzgwMjgsImV4cCI6MTc0MTczODA4OCwic3ViIjoiMSJ9.iFcVMvZD0OcSTtFq9azKNWDMluSykcstwZvFnXODV0NGR_F63YkcyEeIK7GV0BTRNyk60J1hxpKDHkPpeLDobC86dMHCm6vxOV0mtVCARHoOzqneOpqIhsp07uN43ppdeGl7Rcd5aWDEj9D4M_vRAPeVlrCOT2DWuB2Dd54TbPg9QWsG5iVE3SgEzXRfwXRE7rdio62I67L0Ma1IwsYkL_dayQjAEHtFkJ4uKW9EK8n053TwvPAvYxc1sUwR_DwtDgInKNAkzjx9EADA41TOQRWUuV894veZ7-1JUi-wrbdb05u6O3xISCj1nOp9EbEpx75WqlJYMypK1Yw7FUIr7A
+
+###
+GET http://localhost:3000/protected
+
+//vida - risco
+//5m
+//4.30m
+//5m
+
+//
