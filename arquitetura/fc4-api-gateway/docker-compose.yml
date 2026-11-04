@@ -1,0 +1,21 @@
+services:
+  kong:
+    image: kong:latest
+    container_name: kong_api_gateway
+    restart: always
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+    environment:
+      - KONG_DATABASE=off
+      - KONG_ADMIN_LISTEN=0.0.0.0:8001
+      - KONG_PROXY_LISTEN=0.0.0.0:8000
+      - KONG_DECLARATIVE_CONFIG=/etc/kong/kong.yml
+    volumes:
+      - ./kong.yml:/etc/kong/kong.yml
+    networks:
+      - kong_net
+
+networks:
+  kong_net:
+    driver: bridge

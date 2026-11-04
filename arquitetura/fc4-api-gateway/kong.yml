@@ -1,0 +1,22 @@
+_format_version: "3.0"
+_transform: true
+
+services:
+  - name: fc4-api-gateway
+    host: httpbin.konghq.com
+    port: 80
+    protocol: http
+    routes:
+      - name: hello_api_gateway
+        paths:
+          - /
+          - /gerar_uuid
+        strip_path: true
+plugins:
+  - name: key-auth
+    services:
+      - fc4-api-gateway
+consumers:
+  - username: app
+    key-auth:
+      key: secret
