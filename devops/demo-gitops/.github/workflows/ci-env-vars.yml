@@ -1,0 +1,16 @@
+name: CI
+on:
+  push:
+    branches: ["main"]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production          # ativa o gate + carrega vars/secrets deste env
+    steps:
+      - name: mostrar config do ambiente
+        env:
+          AMBIENTE: ${{ vars.APP_ENV }}          # variable → texto plano
+          TOKEN:    ${{ secrets.DEPLOY_TOKEN }}   # secret → mascarado
+        run: |
+          echo "Ambiente: $AMBIENTE - teste treinamento CI/CD"
+          echo "Token:    $TOKEN"
